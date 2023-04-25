@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  grafana:
+    image: grafana/grafana:9.4.7
+    ports:
+      - 3000:3000
+    networks:
+      - platform
+
+  zipkin:
+    image: openzipkin/zipkin:2.24
+    ports:
+      - 9411:9411 # Zipkin UI
+    environment:
+      - STORAGE_TYPE=mem
+    networks:
+      - platform
+
+networks:
+  platform:

@@ -1,6 +1,17 @@
 version: '3.8'
 
 services:
+  emqx:
+    image: emqx:5.0
+    ports:
+      - "1883:1883"
+      - "18083:18083"
+    environment:
+      - EMQX_NAME=emqx
+      - EMQX_HOST=node.emqx.io
+    networks:
+      - platform
+
   zookeeper:
     image: 'bitnami/zookeeper:3.8'
     ports:

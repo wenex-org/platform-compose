@@ -35,11 +35,24 @@ services:
   cassandra:
     image: 'bitnami/cassandra:4.1'
     ports:
-      - '9042:9042'
+      - "9042:9042"
     environment:
       - CASSANDRA_PASSWORD=
       - CASSANDRA_USERNAME=
       - CASSANDRA_PASSWORD_SEEDER=
+    networks:
+      - platform
+
+  influx:
+    image: bitnami/influxdb:2.7
+    ports:
+      - "8086:8086"
+    environment:
+      - INFLUXDB_ADMIN_USER_PASSWORD=
+      - INFLUXDB_USER=
+      - INFLUXDB_USER_PASSWORD=
+      - INFLUXDB_DB=
+      - INFLUXDB_HTTP_AUTH_ENABLED=false
     networks:
       - platform
 
