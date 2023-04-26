@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  sentry:
+    image: sentry
+    links:
+     - redis
+     - postgres
+    ports:
+     - 9000:9000
+    environment:
+      SENTRY_SECRET_KEY: '2sOzJnzpWHYtaHNZSRy2Dw3wHW6Rv5dF'
+      SENTRY_POSTGRES_HOST: postgres
+      SENTRY_DB_USER: admin
+      SENTRY_DB_PASSWORD: admin
+      SENTRY_REDIS_HOST: redis
+
+  cron:
+    image: sentry
+    links:
+     - redis
+     - postgres
+    command: "sentry run cron"
+    environment:
+      SENTRY_SECRET_KEY: '2sOzJnzpWHYtaHNZSRy2Dw3wHW6Rv5dF'
+      SENTRY_POSTGRES_HOST: postgres
+      SENTRY_DB_USER: admin
+      SENTRY_DB_PASSWORD: admin
+      SENTRY_REDIS_HOST: redis
+
+  worker:
+    image: sentry
+    links:
+     - redis
+     - postgres
+    command: "sentry run worker"
+    environment:
+      SENTRY_SECRET_KEY: '2sOzJnzpWHYtaHNZSRy2Dw3wHW6Rv5dF'
+      SENTRY_POSTGRES_HOST: postgres
+      SENTRY_DB_USER: admin
+      SENTRY_DB_PASSWORD: admin
+      SENTRY_REDIS_HOST: redis
+
+networks:
+  platform:
