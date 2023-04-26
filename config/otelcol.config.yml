@@ -1,7 +1,6 @@
 receivers:
   otlp:
     protocols:
-      grpc:
       http:
         cors:
           allowed_origins:
@@ -10,10 +9,9 @@ receivers:
 
 exporters:
   otlp:
-    endpoint: 'jaeger:4317'
+    endpoint: 'jaeger:4318'
     tls:
       insecure: true
-  logging:
 
 processors:
   batch:
@@ -23,4 +21,4 @@ service:
     traces:
       receivers: [otlp]
       processors: [batch]
-      exporters: [logging, otlp]
+      exporters: [otlp]
