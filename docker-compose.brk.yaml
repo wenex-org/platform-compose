@@ -3,6 +3,7 @@ version: '3.8'
 services:
   emqx:
     image: emqx:5.0
+    container_name: emqx
     ports:
       - "1883:1883"
       - "18083:18083"
@@ -13,6 +14,7 @@ services:
       - platform
 
   zookeeper:
+    container_name: zookeeper
     image: 'bitnami/zookeeper:3.8'
     ports:
       - '2181:2181'
@@ -25,6 +27,7 @@ services:
       - platform
 
   kafka:
+    container_name: kafka
     image: 'bitnami/kafka:3.4'
     ports:
       - "9092:9092"
@@ -40,3 +43,4 @@ services:
 
 networks:
   platform:
+    driver: bridge

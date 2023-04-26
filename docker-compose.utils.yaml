@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   mongo:
+    container_name: mongo
     image: bitnami/mongodb:6.0
     ports:
       - "27017:27017"
@@ -12,6 +13,7 @@ services:
       - platform
 
   redis:
+    container_name: redis
     image: bitnami/redis:7.0
     ports:
       - "6379:6379"
@@ -22,6 +24,7 @@ services:
       - platform
 
   minio:
+    container_name: minio
     image: bitnami/minio:2023.4.20
     ports:
       - "9000:9000"
@@ -33,6 +36,7 @@ services:
       - platform
 
   cassandra:
+    container_name: cassandra
     image: 'bitnami/cassandra:4.1'
     ports:
       - "9042:9042"
@@ -44,6 +48,7 @@ services:
       - platform
 
   influx:
+    container_name: influx
     image: bitnami/influxdb:2.7
     ports:
       - "8086:8086"
@@ -58,6 +63,7 @@ services:
 
   postgres:
     image: postgres:15.2
+    container_name: postgres
     ports:
       - "5432:5432"
     environment:
@@ -66,6 +72,9 @@ services:
       POSTGRES_DBNAME: admin
       POSTGRES_DBUSER: admin
       POSTGRES_DBPASS: admin
+    networks:
+      - platform
 
 networks:
   platform:
+    driver: bridge

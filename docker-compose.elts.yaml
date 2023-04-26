@@ -3,6 +3,7 @@ version: '3.8'
 services:
   elasticsearch:
     image: elasticsearch:8.7.0
+    container_name: elasticsearch
     ports:
       - 9200:9200  
     environment:
@@ -12,6 +13,7 @@ services:
       - platform
 
   kibana:
+    container_name: kibana
     image: bitnami/kibana:8.7.0
     ports:
       - 5601:5601
@@ -24,3 +26,4 @@ services:
 
 networks:
   platform:
+    driver: bridge
