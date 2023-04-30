@@ -1,7 +1,7 @@
 version: '3.8'
 
-# docker-compose -f docker-compose.utils.yaml up redis -d
-# docker-compose -f docker-compose.utils.yaml up postgres -d
+# docker-compose -f compose/docker-compose.utils.yaml up redis -d
+# docker-compose -f compose/docker-compose.utils.yaml up postgres -d
 
 # docker exec -it sentry sentry upgrade
 
