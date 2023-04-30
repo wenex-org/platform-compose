@@ -1,0 +1,22 @@
+version: '3.8'
+
+# docker-compose -f docker-compose.utils.yaml up postgres -d
+
+services:
+  sonarqube:
+    image: bitnami/sonarqube:10
+    ports:
+      - '9000:9000'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - SONARQUBE_DATABASE_HOST=postgres
+      - SONARQUBE_DATABASE_PORT_NUMBER=5432
+      - SONARQUBE_DATABASE_USER=admin
+      - SONARQUBE_DATABASE_PASSWORD=admin
+      - SONARQUBE_DATABASE_NAME=sonarqube
+    networks:
+      - platform
+
+networks:
+  platform:
+    driver: bridge

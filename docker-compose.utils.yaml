@@ -69,9 +69,6 @@ services:
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
-      POSTGRES_DBNAME: admin
-      POSTGRES_DBUSER: admin
-      POSTGRES_DBPASS: admin
     networks:
       - platform
 
