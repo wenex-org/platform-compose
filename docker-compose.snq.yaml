@@ -15,7 +15,7 @@ services:
     image: bitnami/sonarqube:10
     container_name: sonarqube
     ports:
-      - '9000:9000'
+      - '80:9000'
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
       - SONARQUBE_DATABASE_HOST=postgresql
