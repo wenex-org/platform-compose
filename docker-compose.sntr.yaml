@@ -1,5 +1,12 @@
 version: '3.8'
 
+############################################################
+#
+#   Note: This version is not supported by our project
+#   Please use https://github.com/getsentry/self-hosted
+#
+############################################################
+
 # docker-compose -f compose/docker-compose.utils.yaml up redis -d
 # docker-compose -f compose/docker-compose.utils.yaml up postgres -d
 
