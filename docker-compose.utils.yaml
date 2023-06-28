@@ -5,7 +5,7 @@ services:
     container_name: mongo
     image: bitnami/mongodb:6.0
     ports:
-      - "27017:27017"
+      - '27017:27017'
     environment:
       - MONGO_INITDB_ROOT_USERNAME=
       - MONGO_INITDB_ROOT_PASSWORD=
@@ -16,7 +16,7 @@ services:
     container_name: redis
     image: bitnami/redis:7.0
     ports:
-      - "6379:6379"
+      - '6379:6379'
     environment:
       - REDIS_PASSWORD=
       - ALLOW_EMPTY_PASSWORD=yes
@@ -27,8 +27,8 @@ services:
     container_name: minio
     image: bitnami/minio:2023.4.20
     ports:
-      - "9000:9000"
-      - "9001:9001"
+      - '9000:9000'
+      - '9001:9001'
     environment:
       - MINIO_ROOT_USER=minioadmin
       - MINIO_ROOT_PASSWORD=minioadmin
@@ -39,10 +39,10 @@ services:
     container_name: cassandra
     image: 'bitnami/cassandra:4.1'
     ports:
-      - "9042:9042"
+      - '9042:9042'
     environment:
-      - CASSANDRA_PASSWORD=
-      - CASSANDRA_USERNAME=
+      - CASSANDRA_PASSWORD=cassandra
+      - CASSANDRA_USERNAME=cassandra
       - CASSANDRA_PASSWORD_SEEDER=
     networks:
       - platform
@@ -51,7 +51,7 @@ services:
     container_name: influx
     image: bitnami/influxdb:2.7
     ports:
-      - "8086:8086"
+      - '8086:8086'
     environment:
       - INFLUXDB_ADMIN_USER_PASSWORD=
       - INFLUXDB_USER=
@@ -65,7 +65,7 @@ services:
     image: postgres:15.2
     container_name: postgres
     ports:
-      - "5432:5432"
+      - '5432:5432'
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
