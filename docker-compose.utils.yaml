@@ -47,20 +47,6 @@ services:
     networks:
       - platform
 
-  influx:
-    container_name: influx
-    image: bitnami/influxdb:2.7
-    ports:
-      - '8086:8086'
-    environment:
-      - INFLUXDB_ADMIN_USER_PASSWORD=
-      - INFLUXDB_USER=
-      - INFLUXDB_USER_PASSWORD=
-      - INFLUXDB_DB=
-      - INFLUXDB_HTTP_AUTH_ENABLED=false
-    networks:
-      - platform
-
   postgres:
     image: postgres:15.2
     container_name: postgres
